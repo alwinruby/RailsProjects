@@ -10,7 +10,7 @@ class DocsController < ApplicationController
   end
 
   def new
-    @doc = current_user.docs.build
+    @doc = current_user.docs.build(doc_params)
   end
 
   def create
@@ -48,7 +48,7 @@ class DocsController < ApplicationController
     end
 
     def doc_params
-      params.require(:doc).permit(:title,:content)
+      params.require(:doc).permit(:title, :content)
     end
 
 end
